@@ -35,8 +35,6 @@ $products = getAll("products");
         </tr>
     <?php endforeach;?>
     </tbody>
-
 </table>
-
 </body>
 </html>

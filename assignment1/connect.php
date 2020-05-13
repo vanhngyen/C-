@@ -25,3 +25,16 @@ function getAll($table){
     }
     return $data;
 }
+
+function toArray($rs){
+    $data = [];
+    if($rs -> num_rows > 0){
+        while ($row = $rs -> fetch_assoc()){
+            $data[] = $row;
+            //mỗi row mà 1 mảng có các key là các column
+        }
+        //var_dump($students);
+    }
+    //students là mang chứa các sinh viên
+    return $data;
+}

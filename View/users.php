@@ -1,4 +1,4 @@
-<?php  require_once "User.php";?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,15 +25,17 @@
     </thead>
     <tbody>
     <?php
-    $users = new \ass1\User();
+    $user = new \Model\User();
+    $current = $_SESSION['user']
     ?>
-    <?php foreach ($users->getUsers() as $s): ?>
+    <h2>Đang đăng nhập dưới tên :<?php echo $current['name']?></h2>
+    <?php foreach ($user->getUsers() as $s): ?>
         <tr>
-            <td><a href="edit.php?id=<?php echo $s["id"]; ?>"><?php echo $s["id"] ?></a></td>
+            <td><a href="?route=edit&id=<?php echo $s["id"]; ?>"><?php echo $s["id"] ?></a></td>
             <td><?php echo $s["name"]?></td>
             <td><?php echo $s["email"]?></td>
             <td><?php echo $s["password"]?></td>
-            <td><a href="delete.php?id=<?php echo $s["id"]; ?>">delete</a></td>
+            <td><a href="?route=delete&id=<?php echo $s["id"]; ?>">delete</a></td>
         </tr>
     <?php endforeach;?>
     </tbody>

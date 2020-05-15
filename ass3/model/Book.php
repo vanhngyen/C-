@@ -47,7 +47,12 @@ class Book extends Model{
 
     public function save()
     {
-        $sql_text = "INSERT INTO ".$this->table."(id,name,category,description,price)VALUES(".(is_null($this->id)?'null':$this->id).",'".$this->name."','".$this->category."','".$this->description."','.$this->price.')ON DUPLICATE KEY UPDATE name = '".$this->name."',category = '".$this->category."',description ='".$this->description."', price = ".$this->price.";";
+        $sql_text = "INSERT INTO ".$this->table."(id,name,category,description,price)VALUES(".(is_null($this->id)?'null':$this->id).",'".$this->name."','".$this->category."','".$this->description."','.$this->price.')ON DUPLICATE KEY UPDATE name = '".$this->name."',category = '".$this->category."',description ='".$this->description."', price = '.$this->price.';";
+        try{
+            $this->getConn()->query($sql_text);
+        }catch (\Exception $e){
+            die($e->getMessage());
+        }
     }
 
     public function find($id)

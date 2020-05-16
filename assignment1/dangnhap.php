@@ -22,7 +22,7 @@
             <input type="password" class="form-control" id="pwd">
         </div>
         <div class="text-center">
-            <button type="button" class="btn btn-danger"> Sign In </button>
+            <button type="button" class="btn btn-danger btn-lg"> Sign In </button>
         </div>
     </form>
 </div>
